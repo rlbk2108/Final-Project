@@ -8,16 +8,23 @@
     
     
     {% for product in products %}
-      {% comment %} <a href="{% url 'photo_detail' photo.id  %}"></a> {% endcomment %}
-      <div class="container mt-4">
+    <div class="container mt-4">
       <div class="row">
-        <div class="col-sm-5">
+        <div class="col-sm-4">
           <div class="card">
             <div class="card-header">{{ product.category }}</div>
             <div class="card-body">
               <h5 class="card-title">{{ product.product_name }}</h5>
               <p class="card-text">Количество: <strong>{{ product.product_number }} </strong></p>
-              <a href="#" class="btn btn-primary">Занять</a>
+              {% comment %} <form class="input-group mb-1" action="{% url 'ware:add_to_cart' product.id %}">
+                <div class="input-group mb-1">
+                  <div class="input-group-prepend">
+                    <button type="submit" class="btn btn-outline-primary" type="button" id="inputGroupFileAddon03">Button</button>
+                  </div>
+                  <input type="submit" class="form-control" placeholder="Количество товара" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Number">
+                </div>
+              </form> {% endcomment %}
+              <a href="{% url 'ware:add_to_cart' product.id %}" class="btn btn-primary">Занять</a>
               <a href="#" class="btn btn-success">Вернуть</a>
             </div>
           </div>

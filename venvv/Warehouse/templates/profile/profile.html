@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+<table class="table table-hover table-bordered text-center">
+      <tr class="text-center">
+        <th>Дата взятия</th>
+        <th>Товар</th>
+        <th>Количество взятого товара</th>
+      </tr>
+      {% for order in my_orders %}
+        <tr>
+          <td>{{ order.date_ordered }}</td>
+          <td>
+        	 {% for name in my_orders %}
+        		{{ name.order_product_name }}
+      		{% endfor %} 
+      	  </td>
+          <td>
+              {% for item in my_orders %}
+              {{ item.ordered_product_num }}
+              {% endfor %}
+        </td>
+
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan= 4> You have no orders.</td>
+        </tr>
+      {% endfor %}
+
+      <tr>
+        <td colspan=4>
+          <a href="{% url 'ware:all_products' %}" class="btn btn-warning pull-left">
+            {% if not order %}К списку товаров{% else %}Add Items to Cart {% endif %}
+          </a> 
+        </td>
+      </tr>
+    </table>
+</div>
+
+{% endblock content %}

@@ -30,18 +30,18 @@
     </div>
     {% if user.is_authenticated %}
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <ul class="navbar-nav mr-auto mb-2 mb-lg">
+      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <p>Привет <strong>{{ user.username }}</strong> </p>
+          <p class="nav-link active">Привет <strong>{{ user.username }}</strong> </p>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Личный кабинет</a>
+          <a class="btn btn-light"  aria-current="page" href="{% url 'ware:profile' %}">Личный кабинет</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Выход</a>
         </li>
-      </ul>
-    </div>
+      </ul> 
+  </div>
     {% else %}
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mb-2 mb-lg">
